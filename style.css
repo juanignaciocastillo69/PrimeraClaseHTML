@@ -1,0 +1,189 @@
+/* ============================================================
+   VARIABLES GLOBALES
+   ============================================================ */
+:root {
+  --violeta: #000000;
+  --violeta-oscuro: #573b87;
+  --amarillo: #ffcf33;
+  --blanco: #ffffff;
+  --texto: #222;
+}
+
+/* ============================================================
+   RESET GENERAL
+   ============================================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ============================================================
+   BODY
+   ============================================================ */
+body {
+  background: rgb(205,183,204);
+  font-family: "Poppins", sans-serif;
+  color: var(--texto);
+  line-height: 1.5;
+}
+
+/* ============================================================
+   MOBILE FIRST (ESTILOS PRINCIPALES)
+   ============================================================ */
+
+/* -------------------- HEADER -------------------- */
+
+header {
+  padding: 2rem 1.5rem;
+}
+
+.header-flex {
+  display: flex;
+  flex-direction: column;    /* MOBILE FIRST */
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+}
+
+.header-texto {
+  width: 100%;
+}
+
+/* Imagen del header */
+.header-imagen img {
+  width: 90%;                /* MOBILE: controla el ancho */
+  max-width: 320px;          /* no permite que explote */
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* -------------------- BOTONES -------------------- */
+
+.botones-header {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.btn {
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  border: none;
+  transition: 0.3s ease;
+}
+
+.btn-principal {
+  background: var(--violeta);
+  color: var(--blanco);
+}
+.btn-principal:hover {
+  background: var(--violeta-oscuro);
+}
+
+.btn-secundario {
+  background: var(--blanco);
+  color: var(--violeta);
+  border: 2px solid var(--violeta);
+}
+.btn-secundario:hover {
+  background: var(--amarillo);
+  color: #000;
+}
+
+/* -------------------- LINKS DE CATEGORÍAS -------------------- */
+
+.categorias {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  list-style: none;
+  margin-top: 1rem;
+}
+
+.categorias li a {
+  color: var(--texto);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* -------------------- SECCIÓN GATOS (Y REUTILIZABLE) -------------------- */
+
+#gatos {
+  padding: 2rem 1.5rem;
+}
+
+.gatos-grid {
+  display: grid;                      /* MOBILE FIRST */
+  grid-template-columns: 1fr;         /* 1 columna en mobile */
+  gap: 1.5rem;
+}
+
+.card-gato {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+.card-gato img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* ============================================================
+   RESPONSIVE → TABLET (>=768px)
+   ============================================================ */
+@media (min-width: 768px) {
+
+  header {
+    padding: 2rem 3rem;
+  }
+
+  .header-flex {
+    flex-direction: row;  
+    text-align: left;
+    justify-content: space-between;
+  }
+
+  .header-texto {
+    width: 60%;
+  }
+
+  .header-imagen img {
+    width: 320px;
+    max-width: 100%;
+  }
+
+  /* GRID EN TABLET */
+  .gatos-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE → DESKTOP (>=1024px)
+   ============================================================ */
+@media (min-width: 1024px) {
+
+  .header-texto {
+    width: 55%;
+  }
+
+  .header-imagen img {
+    width: 350px;
+  }
+
+  /* GRID PROFESIONAL PARA ESCRITORIO */
+  .gatos-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 2rem;
+  }
+}
