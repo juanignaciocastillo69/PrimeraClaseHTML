@@ -1,4 +1,6 @@
-@charset "UTF-8";
+@import "scss/variables";
+@import "scss/mixins";
+
 /* ======================
    RESET
    ====================== */
@@ -12,9 +14,9 @@
    BODY
    ====================== */
 body {
-  background: rgb(205, 183, 204);
+  background: $bg;
   font-family: "Poppins", sans-serif;
-  color: #222;
+  color: $texto;
   line-height: 1.5;
 }
 
@@ -26,11 +28,7 @@ header {
 }
 
 .header-flex {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 1.5rem;
+  @include flex-center-column(1.5rem);
 }
 
 .header-texto {
@@ -41,8 +39,7 @@ header {
   width: 90%;
   max-width: 320px;
   border-radius: 10px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 /* ======================
@@ -56,22 +53,26 @@ header {
   cursor: pointer;
   border: none;
   transition: 0.3s ease;
-}
-.btn-principal {
-  background: #000000;
-  color: #ffffff;
-}
-.btn-principal:hover {
-  background: #573b87;
-}
-.btn-secundario {
-  background: #ffffff;
-  color: #000000;
-  border: 2px solid #000000;
-}
-.btn-secundario:hover {
-  background: #ffcf33;
-  color: #000;
+
+  &-principal {
+    background: $violeta;
+    color: $blanco;
+
+    &:hover {
+      background: $violeta-oscuro;
+    }
+  }
+
+  &-secundario {
+    background: $blanco;
+    color: $violeta;
+    border: 2px solid $violeta;
+
+    &:hover {
+      background: $amarillo;
+      color: #000;
+    }
+  }
 }
 
 /* ======================
@@ -83,11 +84,12 @@ header {
   justify-content: center;
   list-style: none;
   margin-top: 1rem;
-}
-.categorias li a {
-  color: #222;
-  text-decoration: none;
-  font-weight: 600;
+
+  li a {
+    color: $texto;
+    text-decoration: none;
+    font-weight: 600;
+  }
 }
 
 /* ======================
@@ -104,16 +106,16 @@ header {
 }
 
 .card-gato {
-  background: #ffffff;
+  background: $blanco;
   padding: 1rem;
   border-radius: 10px;
   text-align: center;
-}
-.card-gato img {
-  width: 100%;
-  border-radius: 10px;
-  -o-object-fit: cover;
-     object-fit: cover;
+
+  img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+  }
 }
 
 /* ======================
@@ -123,34 +125,25 @@ header {
   header {
     padding: 2rem 3rem;
   }
+
   .header-flex {
     flex-direction: row;
     text-align: left;
     justify-content: space-between;
   }
+
   .header-texto {
     width: 60%;
   }
+
   .header-imagen img {
     width: 320px;
   }
+
   .gatos-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
   }
 }
-/* ======================
-   RESPONSIVE DESKTOP
-   ====================== */
-@media (min-width: 1024px) {
-  .header-texto {
-    width: 55%;
-  }
-  .header-imagen img {
-    width: 350px;
-  }
-  .gatos-grid {
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 2rem;
-  }
-}/*# sourceMappingURL=style.css.map */
+
+/
