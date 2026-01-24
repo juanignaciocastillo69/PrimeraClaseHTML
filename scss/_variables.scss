@@ -1,5 +1,21 @@
-$violeta: #000000;
-$violeta-oscuro: #573b87;
-$amarillo: #ffcf33;
-$blanco: #ffffff;
-$texto: #222;
+/* Variables */
+
+$font-base: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+
+$color-text: #222;
+$color-bg: rgb(205, 183, 204);
+$color-border: rgba(0, 0, 0, 0.06);
+
+$color-dark: #1f2328; /* botones oscuros */
+$color-light: #f8f9fa;
+$color-warning-soft: #fff3cd;
+
+$radius-card: 18px;
+$radius-btn: 10px;
+
+$card-max-width: 260px;
+$card-img-height: 260px;
+
+$shadow-soft: 0 6px 18px rgba(0, 0, 0, 0.08);
+
+$bp-lg: 992px;
